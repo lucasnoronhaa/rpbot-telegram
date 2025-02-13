@@ -3,10 +3,15 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, CallbackQueryHandler, filters, CallbackContext
 from datetime import datetime
 from bs4 import BeautifulSoup
-import os
+import json
 
-TOKEN = "7532075980:AAGkvoFDHBVK6Md_r1SAOCBGAHIJUGs9q9w"
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "**********")
+# Token do bot
+with open("config.json", "r") as config_file:
+    config = json.load(config_file)
+    TOKEN = config["token"]
+
+
+# Função para obter o resumo de uma ação
 def obter_resumo_ativo(ticker):
     # Consulta o ativo na Investing.com
     url = f"https://br.investing.com/equities/{ticker.lower()}"
