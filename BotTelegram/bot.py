@@ -11,6 +11,7 @@ with open("config.json", "r") as config_file:
     TOKEN = config["token"]
 
 
+
 # Função para obter o resumo de uma ação
 def obter_resumo_ativo(ticker):
     # Consulta o ativo na Investing.com
