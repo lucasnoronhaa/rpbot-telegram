@@ -3,9 +3,10 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, CallbackQueryHandler, filters, CallbackContext
 from datetime import datetime
 from bs4 import BeautifulSoup
+import os
 
 TOKEN = "7532075980:AAGkvoFDHBVK6Md_r1SAOCBGAHIJUGs9q9w"
-
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "**********")
 def obter_resumo_ativo(ticker):
     # Consulta o ativo na Investing.com
     url = f"https://br.investing.com/equities/{ticker.lower()}"
